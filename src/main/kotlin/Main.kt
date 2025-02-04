@@ -16,9 +16,15 @@ fun main() {
     val json = response.body()
     println(json)
 
-    val meuJogo = Jogo()
-    meuJogo.titulo = "Batman: Arkham Asylum Game of the Year Edition"
-    meuJogo.capa = "https://cdn.cloudflare.steamstatic.com/steam/apps/35140/header.jpg?t=1602609787"
+    val meuJogo = Jogo(
+        "Batman: Arkham Asylum Game of the Year Edition",
+        "https://cdn.cloudflare.steamstatic.com/steam/apps/35140/header.jpg?t=1602609787")
 
-    println(meuJogo.toString())
+    println(meuJogo)
+
+    // Exemplo com ordem diferente
+    val novoJogo = Jogo(
+        capa="https://cdn.cloudflare.steamstatic.com/steam/apps/35140/header.jpg?t=1602609787",
+        titulo="Batman: Arkham Asylum Game of the Year Edition")
+    println(novoJogo)
 }
