@@ -7,6 +7,10 @@ import java.util.Scanner
 fun main() {
 
     val leitura = Scanner(System.`in`)
+    val gamer = Gamer.criarGamer(leitura)
+    println("Gamer criado com sucesso, confira os dados:")
+    println(gamer)
+
     do {
         println("Digite o ID do jogo que deseja buscar:")
         val busca = leitura.nextLine()
@@ -29,7 +33,7 @@ fun main() {
 
         resultado.onSuccess {
 
-            println("Deseja inserir uma descrição personalizada? (s/n)")
+            println("Deseja inserir uma descrição personalizada? (S/N)")
             val resposta = leitura.nextLine()
 
             if (resposta.equals("s", true)) {
@@ -42,13 +46,16 @@ fun main() {
 
             }
 
-            println(meuJogo)
+            gamer.jogosBuscados.add(meuJogo)
         }
 
-        println("\nDeseja buscar outro jogo? (s/n)")
+        println("\nDeseja buscar outro jogo? (S/N)")
         val resposta = leitura.nextLine()
 
     } while (resposta.equals("s", true))
+
+    println("Jogos buscados:")
+    println(gamer.jogosBuscados)
 
     println("Busca concluida com sucesso")
 }
