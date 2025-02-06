@@ -37,12 +37,13 @@ fun main() {
             val resposta = leitura.nextLine()
 
             if (resposta.equals("s", true)) {
+
                 println("Digite a descrição personalizada:")
                 val descricaoPersonalizada = leitura.nextLine()
                 meuJogo?.descricao = descricaoPersonalizada
                 println("Descrição inserida: $descricaoPersonalizada")
             } else {
-                meuJogo?.descricao = meuJogo?.titulo
+                meuJogo?.descricao = "Não disponível"
 
             }
 
@@ -57,5 +58,40 @@ fun main() {
     println("Jogos buscados:")
     println(gamer.jogosBuscados)
 
+    println("\nJogos ordenados por título:")
+    gamer.jogosBuscados.sortBy {
+        it?.titulo
+    }
+
+    gamer.jogosBuscados.forEach {
+        println("Título: " + it?.titulo)
+    }
+
+    val jogosFiltrados = gamer.jogosBuscados.filter {
+        it?.titulo?.contains("batman", true) ?: false
+    }
+
+    println("\nJogos filtrados por Batman:")
+    println(jogosFiltrados)
+
+    println("Deseja excluir algum jogo da lista original? (S/N)")
+    val respostaExclusao = leitura.nextLine()
+
+    if (respostaExclusao.equals("s", true)) {
+
+        // Reformulando apenas o título dos jogos, já ordenados por titulo
+        gamer.jogosBuscados.forEach {
+            println("Título: " + it?.titulo)
+        }
+
+        println("\nDigite o índice do jogo que deseja excluir:")
+        val indice = leitura.nextInt()
+        gamer.jogosBuscados.removeAt(indice)
+    }
+
+    println("\nLista atualizada:")
+    println(gamer.jogosBuscados)
+
+    println("******************************")
     println("Busca concluida com sucesso")
 }
