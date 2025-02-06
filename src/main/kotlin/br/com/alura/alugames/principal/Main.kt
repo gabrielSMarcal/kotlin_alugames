@@ -1,8 +1,10 @@
 package br.com.alura.alugames.principal
 
+import java.util.Scanner
+
 import br.com.alura.alugames.modelo.*
 import br.com.alura.alugames.servicos.ConsumoApi
-import java.util.Scanner
+import transformarIdade
 
 fun main() {
 
@@ -10,6 +12,7 @@ fun main() {
     val gamer = Gamer.criarGamer(leitura)
     println("Gamer criado com sucesso, confira os dados:")
     println(gamer)
+    println("Idade do Gamer: " + gamer.dataNascimento?.transformarIdade())
 
     do {
         println("Digite o ID do jogo que deseja buscar:")

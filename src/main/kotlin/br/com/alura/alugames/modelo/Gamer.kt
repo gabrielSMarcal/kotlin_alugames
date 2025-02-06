@@ -83,4 +83,6 @@ data class Gamer(var nome: String, var email: String) {
             }
         }
     }
+
+
 }
