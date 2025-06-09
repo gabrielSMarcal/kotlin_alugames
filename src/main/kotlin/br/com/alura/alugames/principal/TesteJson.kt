@@ -7,5 +7,5 @@ fun main() {
     val consumo = ConsumoApi()
     val listaGamers = consumo.buscaGamers()
 
-    println("Lista de Gamers:" + listaGamers)
+    println(listaGamers)
 }
