@@ -1,5 +1,6 @@
 package br.com.alura.alugames.modelo
 
+import br.com.alura.alugames.modelo.PlanoAvulso
 import java.util.Scanner
 import kotlin.random.Random
 
