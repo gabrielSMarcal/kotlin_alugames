@@ -1,6 +1,9 @@
 package br.com.alura.alugames.principal
 
+import br.com.alura.alugames.modelo.Periodo
 import br.com.alura.alugames.servicos.ConsumoApi
+import java.time.LocalDate
+import java.time.Period
 
 fun main() {
 
@@ -18,6 +21,8 @@ fun main() {
     println(gamerCaroline)
     println(jogoResidentVillage)
 
-    val alguel = gamerCaroline.alugaJogo(jogoResidentVillage)
+    val periodo = Periodo(LocalDate.now(), LocalDate.now().plusDays(7))
+
+    val alguel = gamerCaroline.alugaJogo(jogoResidentVillage, periodo)
     println(alguel)
 }
