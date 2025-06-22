@@ -1,6 +1,5 @@
 package br.com.alura.alugames.modelo
 
-import java.time.LocalDate
 import java.util.Scanner
 import kotlin.random.Random
 
@@ -65,6 +64,12 @@ data class Gamer(var nome: String, var email: String) {
         jogosAlugados.add(aluguel)
 
         return aluguel
+    }
+
+    fun jogosDoMes(mes:Int): List<Jogo> {
+        return jogosAlugados
+            .filter { aluguel -> aluguel.periodo.dataInicial.monthValue == mes}
+            .map { aluguel -> aluguel.jogo}
     }
 
     companion object {

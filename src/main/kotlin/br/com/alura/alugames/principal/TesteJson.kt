@@ -28,11 +28,16 @@ fun main() {
     val periodo1 = Periodo(LocalDate.now(), LocalDate.now().plusDays(7))
     val periodo2 = Periodo(LocalDate.now(), LocalDate.now().plusDays(5))
     val periodo3 = Periodo(LocalDate.now(), LocalDate.now().plusDays(10))
+    val periodo4 = Periodo(LocalDate.of(2023,8,2),
+                            LocalDate.of(2023,8,15))
 
     gamerCaroline.alugaJogo(jogoResidentVillage, periodo1)
     gamerCaroline.alugaJogo(jogoSpider, periodo2)
     gamerCaroline.alugaJogo(jogoTLOU, periodo3)
+    gamerCaroline.alugaJogo(jogoSpider, periodo4)
 
-    println(gamerCaroline.jogosAlugados)
+    println(gamerCaroline.jogosDoMes(6))
+
+//    println(gamerCaroline.jogosAlugados)
 
 }
