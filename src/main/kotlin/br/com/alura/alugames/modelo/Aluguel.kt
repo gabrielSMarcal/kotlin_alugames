@@ -5,7 +5,7 @@ data class Aluguel(
     val jogo: Jogo,
     val periodo: Periodo) {
 
-    val valorDoAluguel = jogo.preco * periodo.emDias
+    val valorDoAluguel = gamer.plano.obterValor(this)
 
     override fun toString(): String {
         val valorFormatado = String.format("%.2f", valorDoAluguel)
