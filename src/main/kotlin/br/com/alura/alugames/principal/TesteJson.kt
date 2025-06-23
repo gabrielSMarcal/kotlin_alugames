@@ -57,4 +57,17 @@ fun main() {
 
     gamerCamila.alugaJogo(jogoResidentVillage, periodo1)
     println(gamerCamila.jogosAlugados)
+
+    gamerCamila.recomendarJogo(jogoResidentVillage, 7)
+    gamerCamila.recomendarJogo(jogoTLOU, 10)
+
+    gamerCaroline.recomendarJogo(jogoResidentVillage, 8)
+    gamerCaroline.recomendarJogo(jogoTLOU, 8)
+
+    println("Recomendações Camila")
+    println(gamerCamila.jogosRecomendados)
+    println("Recomendações Caroline")
+    println(gamerCaroline.jogosRecomendados)
+
+
 }

@@ -20,11 +20,22 @@ data class Gamer(var nome: String, var email: String): Recomendavel {
     val jogosBuscados = mutableListOf<Jogo?>()
     val jogosAlugados = mutableListOf<Aluguel>()
     private val listaNotas = mutableListOf<Int>()
+    val jogosRecomendados = mutableListOf<Jogo>()
 
     override val media: Double
         get() = listaNotas.average()
 
+    fun recomendarJogo(jogo: Jogo, nota: Int) {
+
+        if (nota < 1 || nota > 10) {
+            throw IllegalArgumentException("Nota deve ser entre 1 e 10")
+        }
+        jogo.recomendar(nota)
+        jogosRecomendados.add(jogo)
+    }
+
     override fun recomendar(nota: Int) {
+
         if (nota < 1 || nota > 10) {
             throw IllegalArgumentException("Nota deve ser entre 1 e 10")
         }
@@ -53,7 +64,7 @@ data class Gamer(var nome: String, var email: String): Recomendavel {
                 "Data de Nascimento: $dataNascimento\n" +
                 "Usuario: $usuario\n" +
                 "ID Interno: $idInterno\n" +
-                "Reputação: ${String.format("%.2f", media)}\n"
+                "Reputação: $media\n"
     }
 
     fun criarIdInterno() {
