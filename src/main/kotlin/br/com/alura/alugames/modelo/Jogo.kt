@@ -11,6 +11,9 @@ data class Jogo (val titulo:String,
         get() = listaNotas.average()
 
     override fun recomendar(nota: Int) {
+        if (nota < 1 || nota > 10) {
+            throw IllegalArgumentException("Nota deve ser entre 1 e 10")
+        }
         listaNotas.add(nota)
     }
 
