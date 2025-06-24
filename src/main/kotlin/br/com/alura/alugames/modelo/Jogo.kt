@@ -7,8 +7,8 @@ data class Jogo (@Expose val titulo:String,
 
     var descricao:String? = null
     var preco = 0.0
+    var id = 0
     private val listaNotas = mutableListOf<Int>()
-
     override val media: Double
         get() = listaNotas.average()
 
@@ -19,11 +19,11 @@ data class Jogo (@Expose val titulo:String,
         listaNotas.add(nota)
     }
 
-    constructor(titulo:String, capa:String, preco:Double, descricao:String)
+    constructor(titulo:String, capa:String, preco:Double, descricao:String, id: Int = 0)
             :this(titulo, capa){
-
         this.preco = preco
         this.descricao = descricao
+        this.id = 0
     }
 
     override fun toString(): String {
@@ -33,6 +33,7 @@ data class Jogo (@Expose val titulo:String,
                 "Capa: $capa \n" +
                 "Preço: R$$preco \n" +
                 "Descrição: $descricao \n" +
-                "Reputação: $media \n"
+                "Reputação: $media \n" +
+                "ID: $id \n"
     }
 }

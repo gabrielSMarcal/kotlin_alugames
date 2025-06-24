@@ -4,7 +4,8 @@ class PlanoAssinatura (
     tipo: String,
     val mensalidade: Double,
     val jogosIncluidos: Int,
-    val percentualDescontoReputacao: Double): Plano(tipo) {
+    val percentualDescontoReputacao: Double,
+    id: Int = 0): Plano(tipo) {
 
     override fun obterValor(aluguel: Aluguel): Double {
 
@@ -22,5 +23,15 @@ class PlanoAssinatura (
 
             valorOriginal
         }
+    }
+
+    override fun toString(): String {
+        return "Plano Assinatura: \n" +
+                "Tipo: $tipo \n" +
+                "ID: $id \n" +
+                "Mensalidade: R$$mensalidade \n" +
+                "Jogos Incluídos: $jogosIncluidos \n" +
+                "Desconto percentual de Reputação: $percentualDescontoReputacao \n"
+
     }
 }

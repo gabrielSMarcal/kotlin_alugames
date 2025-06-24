@@ -6,6 +6,7 @@ data class Aluguel(
     val periodo: Periodo) {
 
     val valorDoAluguel = gamer.plano.obterValor(this)
+    var id = 0
 
     override fun toString(): String {
         val valorFormatado = String.format("%.2f", valorDoAluguel)
