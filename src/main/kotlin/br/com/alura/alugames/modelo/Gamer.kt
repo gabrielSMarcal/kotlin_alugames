@@ -43,7 +43,7 @@ data class Gamer(var nome: String, var email: String): Recomendavel {
         listaNotas.add(nota)
     }
 
-    constructor(nome: String, email: String, dataNascimento: String, usuario: String, id: Int = 0)
+    constructor(nome: String, email: String, dataNascimento: String?, usuario: String?, id: Int = 0)
             : this(nome, email) {
 
         this.dataNascimento = dataNascimento
