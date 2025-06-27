@@ -1,25 +1,40 @@
 package br.com.alura.alugames.dados
 
-import java.sql.Connection
-import java.sql.DriverManager
-import java.sql.SQLException
+import javax.persistence.EntityManager
+import javax.persistence.EntityManagerFactory
+import javax.persistence.Persistence
 
 object Banco {
 
-    fun obterConexao(): Connection? {
+//    fun obterConexao(): Connection? {
+//
+//        val dbPassword = System.getenv("MYSQL_PASS")
+//
+//        return try {
+//            DriverManager.getConnection(
+//            "jdbc:mysql://localhost:3306/alugames",
+//            "root",
+//            dbPassword)
+//        } catch (e: SQLException) {
+//            e.printStackTrace()
+//            null
+//        }
+//    }
 
-        val dbPassword = System.getenv("MYSQL_PASS")
+    // Variável de ambiente para a senha do banco de dados
+    val dbPassword = System.getenv("MYSQL_PASS")
 
-        return try {
-            DriverManager.getConnection(
-            "jdbc:mysql://localhost:3306/alugames",
-            "root",
-            dbPassword)
-        } catch (e: SQLException) {
-            e.printStackTrace()
-            null
-        }
+    // Mapeamento das propriedades de conexão com o banco de dados
+    val properties = mapOf(
+        "javax.persistence.jdbc.password" to dbPassword
+    )
+
+    fun getEntityManager(): EntityManager {
+
+        val factory: EntityManagerFactory =
+            Persistence.createEntityManagerFactory("alugames", properties)
+
+        return factory.createEntityManager()
     }
-
 
 }
