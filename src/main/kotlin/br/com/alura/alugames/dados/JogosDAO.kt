@@ -1,20 +1,29 @@
 package br.com.alura.alugames.dados
 
 import br.com.alura.alugames.modelo.Jogo
+import javax.persistence.EntityManager
 
-class JogosDAO {
+class JogosDAO(val manager: EntityManager) {
 
     fun getJogos(): List<Jogo> {
 
-        val manager = Banco.getEntityManager()
-        try {
-            val query = manager.createQuery("FROM JogoEntity", JogoEntity::class.java)
-            return query.resultList.map { entity -> Jogo(entity.titulo, entity.capa,
-                entity.preco, entity.descricao, entity.id) }
-        } finally {
-            manager.close()
-        }
+        val query = manager.createQuery("FROM JogoEntity", JogoEntity::class.java)
+        return query.resultList.map { entity -> Jogo(entity.titulo, entity.capa,
+            entity.preco, entity.descricao, entity.id) }
+
     }
+
+    fun adicionarJogo(jogo: Jogo) {
+
+        val entity = JogoEntity(jogo.titulo, jogo.capa,
+            jogo.preco, jogo.descricao)
+
+        manager.transaction.begin()
+        manager.persist(entity)
+        manager.transaction.commit()
+    }
+
+    // Abaixo, código com nível inferior, para demonstrar a facilidade do código acima
 
 //    fun getJogos(): List<Jogo> {
 //
