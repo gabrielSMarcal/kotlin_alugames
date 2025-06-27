@@ -8,8 +8,9 @@ class JogosDAO {
 
         val manager = Banco.getEntityManager()
         try {
-            val query = manager.createQuery("FROM Jogo", Jogo::class.java)
-            return query.resultList
+            val query = manager.createQuery("FROM JogoEntity", JogoEntity::class.java)
+            return query.resultList.map { entity -> Jogo(entity.titulo, entity.capa,
+                entity.preco, entity.descricao, entity.id) }
         } finally {
             manager.close()
         }
