@@ -18,9 +18,14 @@ fun main() {
                 "onde você controla a heroína Dandara em sua luta para libertar o mundo repleto de opressão e tirania.")
     val manager = Banco.getEntityManager()
     val jogosDAO = JogosDAO(manager)
-    jogosDAO.adicionarJogo(jogo2)
+//    jogosDAO.adicionar(jogo2)
 
-    val listaJogos: List<Jogo> = jogosDAO.getJogos()
+    val jogoRecuperado = jogosDAO.recuperarPeloId(7)
+    println(jogoRecuperado)
+
+    jogosDAO.apagar(7)
+
+    val listaJogos: List<Jogo> = jogosDAO.getLista()
 
     println(listaJogos)
 

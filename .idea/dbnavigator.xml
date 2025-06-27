@@ -49,7 +49,6 @@
     j.`preco`,
     j.`titulo`
 from
-
     `jogos` j;]]></console>
     </connection>
   </component>
@@ -71,6 +70,11 @@ from
   <component name="DBNavigator.Project.ObjectQuickFilterManager">
     <last-used-operator value="EQUAL" />
     <filters />
+  </component>
+  <component name="DBNavigator.Project.ScriptExecutionManager" clear-outputs="true">
+    <recently-used-interfaces>
+      <mapping database-type="MYSQL" interface-id="DEFAULT" />
+    </recently-used-interfaces>
   </component>
   <component name="DBNavigator.Project.Settings">
     <connections>
