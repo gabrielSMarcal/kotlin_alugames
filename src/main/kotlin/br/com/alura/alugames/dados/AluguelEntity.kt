@@ -19,7 +19,7 @@ class AluguelEntity(
     @Embedded
     val periodo: Periodo = Periodo()) {
 
-    val valorDoAluguel = 0.0
+    var valorDoAluguel = 0.0
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id = 0
 }
