@@ -23,7 +23,7 @@ fun main() {
     val jogoRecuperado = jogosDAO.recuperarPeloId(6)
     println(jogoRecuperado)
 
-    jogosDAO.apagar(6)
+    jogosDAO.apagar(6);
 
     val listaJogos: List<Jogo> = jogosDAO.getLista()
 
