@@ -1,6 +1,7 @@
 package br.com.alura.alugames.dados
 
 import br.com.alura.alugames.modelo.Jogo
+import br.com.alura.alugames.modelo.Plano
 import javax.persistence.EntityManager
 
 abstract class DAO <TModel, TEntity> (protected val manager: EntityManager, protected val entityType: Class<TEntity>) {
@@ -21,6 +22,7 @@ abstract class DAO <TModel, TEntity> (protected val manager: EntityManager, prot
         manager.transaction.begin()
         manager.persist(entity)
         manager.transaction.commit()
+
     }
 
     open fun recuperarPeloId(id: Int): TModel {
@@ -41,6 +43,5 @@ abstract class DAO <TModel, TEntity> (protected val manager: EntityManager, prot
         manager.transaction.begin()
         manager.remove(entity)
         manager.transaction.commit()
-        //recuperarPeloID(id)
     }
 }
