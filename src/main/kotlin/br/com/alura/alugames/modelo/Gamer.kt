@@ -60,14 +60,15 @@ data class Gamer(var nome: String, var email: String): Recomendavel {
     }
 
     override fun toString(): String {
-        return "Gamer:" +
+        return "Gamer: \n" +
                 "Nome: $nome\n" +
                 "Email: $email\n" +
                 "Data de Nascimento: $dataNascimento\n" +
                 "Usuario: $usuario\n" +
                 "ID Interno: $idInterno\n" +
                 "Reputação: $media\n" +
-                "ID: $id\n"
+                "ID: $id\n" +
+                "Plano: ${plano.tipo}\n"
     }
 
     fun criarIdInterno() {

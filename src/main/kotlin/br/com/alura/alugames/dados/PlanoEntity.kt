@@ -16,7 +16,7 @@ import javax.persistence.Table
 @Inheritance (strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "tipoPlano", discriminatorType = DiscriminatorType.STRING)
 sealed class PlanoEntity(
-    val tipo :String,
+    val tipo: String,
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id: Int = 0)
 
