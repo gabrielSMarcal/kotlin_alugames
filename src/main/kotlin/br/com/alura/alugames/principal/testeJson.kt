@@ -6,7 +6,6 @@ import br.com.alura.alugames.servicos.ConsumoApi
 import com.google.gson.GsonBuilder
 import java.io.File
 import java.time.LocalDate
-import java.time.Period
 
 fun main() {
 
